@@ -1,0 +1,677 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a3a52;
+    --secondary-color: #2c5f8d;
+    --accent-color: #00a8e8;
+    --security-color: #e74c3c;
+    --infrastructure-color: #3498db;
+    --applications-color: #9b59b6;
+    --projects-color: #27ae60;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --bg-light: #f8f9fa;
+    --shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-dark);
+}
+
+#fullpage {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    padding: 80px 20px;
+    position: relative;
+}
+
+#slide-1 {
+    background: linear-gradient(135deg, #1a3a52 0%, #2c5f8d 100%);
+}
+
+#slide-2 {
+    background: linear-gradient(135deg, #2c5f8d 0%, #3d729f 100%);
+}
+
+#slide-3 {
+    background: linear-gradient(135deg, #3d729f 0%, #4e85b1 100%);
+}
+
+#slide-4 {
+    background: linear-gradient(135deg, #4e85b1 0%, #5f98c3 100%);
+}
+
+#slide-5 {
+    background: linear-gradient(135deg, #5f98c3 0%, #70abd5 100%);
+}
+
+#slide-6 {
+    background: linear-gradient(135deg, #1a3a52 0%, #00a8e8 100%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+/* Navegación con puntos */
+#navigation {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.nav-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.dot:hover,
+.dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Flechas de navegación */
+.nav-arrows {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Slide 1: Introducción */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card .icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.card ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.card ul li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.objectives li {
+    margin-bottom: 15px;
+}
+
+/* Slide 2: Procesos */
+.processes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.process-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+}
+
+.process-header {
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+
+.process-header.security {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.process-header.infrastructure {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.process-header.applications {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.process-header.projects {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.process-header .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.process-header h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.process-content {
+    padding: 30px;
+}
+
+.process-content h3 {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.process-content p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #ecf0f1;
+}
+
+.metric {
+    font-weight: bold;
+    color: var(--accent-color);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Slide 3: Innovación */
+.innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 40px;
+}
+
+.innovation-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.innovation-card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.automation-item {
+    margin-bottom: 30px;
+}
+
+.automation-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.automation-item p {
+    color: #7f8c8d;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    background: #ecf0f1;
+    border-radius: 10px;
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: width 1s ease;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tool {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 4px solid var(--accent-color);
+}
+
+.tool h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.tool p {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+}
+
+/* Slide 4: KPIs */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.chart-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.chart-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.kpi-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.kpi-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: scale(1.05);
+}
+
+.kpi-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.kpi-label {
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Slide 5: Roadmap */
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.roadmap-section,
+.initiatives-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.roadmap-section h2,
+.initiatives-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-color), var(--secondary-color));
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: 4px solid white;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.timeline-period {
+    min-width: 100px;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.initiative {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--accent-color);
+}
+
+.initiative:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.initiative-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.initiative h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.initiative p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Slide 6: Cierre */
+.closing {
+    text-align: center;
+}
+
+.closing h1 {
+    font-size: 5rem;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.contact-info {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.contact-item .icon {
+    font-size: 2rem;
+}
+
+.team-info {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.team-info h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.team-info p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+    animation: fadeIn 0.8s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 0.8s ease 0.4s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-3 {
+    animation: fadeIn 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-4 {
+    animation: fadeIn 0.8s ease 0.8s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-5 {
+    animation: fadeIn 0.8s ease 1s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-6 {
+    animation: fadeIn 0.8s ease 1.2s forwards;
+    opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .content-grid,
+    .innovation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .initiatives-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .processes-grid,
+    .kpi-grid,
+    .kpi-cards,
+    .tools-grid,
+    .initiatives-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .nav-arrows {
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    #navigation {
+        right: 15px;
+    }
+    
+    .closing h1 {
+        font-size: 3rem;
+    }
+}
